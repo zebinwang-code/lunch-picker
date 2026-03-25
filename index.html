@@ -42,6 +42,87 @@
             font-size: 14px;
         }
 
+        /* Market Card */
+        .market-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 24px;
+        }
+
+        .market-title {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .market-indices {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .market-index {
+            padding: 12px;
+            border-radius: 12px;
+            background: #f9fafb;
+        }
+
+        .market-index-name {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .market-index-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .market-index-change {
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .market-change-up { color: #ef4444; }
+        .market-change-down { color: #22c55e; }
+
+        .market-tip {
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .market-tip.up {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            color: #dc2626;
+        }
+
+        .market-tip.down {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            color: #16a34a;
+        }
+
+        .market-tip.flat {
+            background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            color: #d97706;
+        }
+
+        .market-loading {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
         /* Lucky Draw Card */
         .lucky-draw {
             background: white;
@@ -175,6 +256,18 @@
             gap: 12px;
         }
 
+        /* 二楼两列展示 */
+        #secondRestaurantList {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        #secondRestaurantList .restaurant-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .restaurant-card {
             background: white;
             border-radius: 16px;
@@ -190,6 +283,38 @@
         .restaurant-card:hover {
             transform: translateX(8px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .restaurant-votes {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .vote-btn {
+            border: 1px solid rgba(0,0,0,0.06);
+            background: #f3f4f6;
+            border-radius: 14px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #111827;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .vote-btn.selected-like {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #16a34a;
+        }
+
+        .vote-btn.selected-dislike {
+            background: #fee2e2;
+            border-color: #fca5a5;
+            color: #dc2626;
         }
 
         .restaurant-icon {
@@ -251,6 +376,95 @@
             font-size: 20px;
         }
 
+        /* QR Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 340px;
+            width: 100%;
+            text-align: center;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .modal-tags {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .modal-qr {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .modal-qr img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .modal-hint {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            padding: 12px 32px;
+            font-size: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -304,110 +518,200 @@
             <p>每天纠结吃什么？交给命运吧！</p>
         </header>
 
+        <section class="market-card">
+            <div class="market-title">📈 今日行情</div>
+            <div class="market-indices" id="marketIndices">
+                <div class="market-loading">加载中...</div>
+            </div>
+            <div class="market-tip" id="marketTip">加载中...</div>
+        </section>
+
         <section class="lucky-draw">
             <div class="lucky-draw-icon">🎲</div>
             <div class="lucky-draw-title">今天吃什么由天决定</div>
-            <button class="draw-btn" id="drawBtn" onclick="drawLucky()">
-                开始抽签
-            </button>
-            <div class="result-card" id="resultCard">
-                <div class="result-restaurant" id="resultRestaurant"></div>
-                <div class="result-dish" id="resultDish"></div>
+            <button class="draw-btn" id="floorDrawBtn" onclick="drawFloor()">开始抽签</button>
+            <div class="result-card" id="floorResultCard">
+                <div class="result-restaurant" id="floorResultRestaurant"></div>
+                <div class="result-dish" id="floorResultDish"></div>
                 <div>
-                    <a class="result-action" id="resultAction" href="#" target="_blank">
-                        立即下单 →
-                    </a>
+                    <a class="result-action" id="floorResultAction" href="javascript:void(0)">立即下单 →</a>
                 </div>
             </div>
         </section>
 
-        <h2 class="section-title">
-            <span>🏪</span> 餐厅合集
-        </h2>
+        <section class="lucky-draw" style="margin-top:26px;">
+            <div class="lucky-draw-icon" style="background:linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);box-shadow:0 10px 30px rgba(59,130,246,0.35);">🥤</div>
+            <div class="lucky-draw-title">今天喝什么由天决定</div>
+            <button class="draw-btn" id="drinkDrawBtn" onclick="drawDrink()">开始抽签</button>
+            <div class="result-card" id="drinkResultCard">
+                <div class="result-restaurant" id="drinkResultRestaurant"></div>
+                <div class="result-dish" id="drinkResultDish"></div>
+                <div>
+                    <a class="result-action" id="drinkResultAction" href="javascript:void(0)">立即下单 →</a>
+                </div>
+            </div>
+        </section>
 
-        <div class="restaurant-list" id="restaurantList"></div>
+        <h2 class="section-title" style="margin-top:26px;"><span>🏪</span> 一楼餐厅合集</h2>
+        <div class="restaurant-list" id="firstRestaurantList"></div>
+
+        <h2 class="section-title" style="margin-top:26px;"><span>🏮</span> 二楼档口集合展示</h2>
+        <div class="restaurant-list" id="secondRestaurantList"></div>
+
+        <h2 class="section-title" style="margin-top:26px;"><span>🧾</span> 点单区域</h2>
+        <div class="restaurant-list" id="drinkOrderList"></div>
 
         <footer class="footer">
-            <p>点击餐厅即可跳转下单</p>
+            <p>点击餐厅扫码下单</p>
         </footer>
     </div>
 
+    <!-- QR Code Modal -->
+    <div class="modal-overlay" id="qrModal">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-tags" id="modalTags"></div>
+            <div class="modal-qr">
+                <img id="modalQr" src="" alt="扫码下单">
+            </div>
+            <div class="modal-hint" id="modalHint">请使用微信/支付宝扫码下单</div>
+            <button class="modal-close" onclick="closeModal()">关闭</button>
+        </div>
+    </div>
+
     <script>
-        const restaurants = [
-            {
-                name: "原切牛排",
-                tags: "牛排/汉堡/意面",
-                icon: "🥩",
-                iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)",
-                dish: "招牌牛排套餐",
-                coupon: "22元券",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704136"
-            },
-            {
-                name: "山城渝面",
-                tags: "面/米线/酸辣粉",
-                icon: "🍜",
-                iconBg: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
-                dish: "重庆小面",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704134"
-            },
-            {
-                name: "杭儿拌川",
-                tags: "拌川/片儿川/汤面",
-                icon: "🍜",
-                iconBg: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)",
-                dish: "招牌拌川",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704139"
-            },
-            {
-                name: "滋滋拌饭",
-                tags: "石锅拌饭/烤肉/炸鸡",
-                icon: "🍛",
-                iconBg: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)",
-                dish: "石锅拌饭",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704137"
-            },
-            {
-                name: "瓯满鲜海鲜面",
-                tags: "海鲜面/炒饭/小海鲜",
-                icon: "🦐",
-                iconBg: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)",
-                dish: "海鲜面大份",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704143"
-            },
-            {
-                name: "百味食肆",
-                tags: "生煎包/豆花/馄饨/卤味",
-                icon: "🥟",
-                iconBg: "linear-gradient(135deg, #a3e635 0%, #84cc16 100%)",
-                dish: "生煎包+豆花",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704138"
-            },
-            {
-                name: "辣么冒菜",
-                tags: "冒菜/麻辣烫",
-                icon: "🌶️",
-                iconBg: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)",
-                dish: "冒菜套餐",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704146"
-            },
-            {
-                name: "酸菜鱼饭",
-                tags: "酸菜鱼/水煮鱼/烤鱼",
-                icon: "🐟",
-                iconBg: "linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)",
-                dish: "酸菜鱼套餐",
-                url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY"
-            },
-            {
-                name: "鲜烫牛肉米线",
-                tags: "牛肉米线/羊肉米线/小笼包",
-                icon: "🍲",
-                iconBg: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)",
-                dish: "牛肉米线",
-                url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704140"
-            }
+        const firstFloorRestaurants = [
+            { id: "raw_slice_steak", name: "原切牛排", tags: "牛排/汉堡/意面", icon: "🥩", iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)", dish: "招牌牛排套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704136" },
+            { id: "shan_cheng_yu_mian", name: "山城渝面", tags: "面/米线/酸辣粉", icon: "🍜", iconBg: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", dish: "重庆小面", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704134" },
+            { id: "hang_er_ban_chuan", name: "杭儿拌川", tags: "拌川/片儿川/汤面", icon: "🍜", iconBg: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)", dish: "招牌拌川", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704139" },
+            { id: "xinjiang_grab_fan_wang", name: "新疆抓饭王", tags: "抓饭/烤肉", icon: "🍛", iconBg: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)", dish: "新疆抓饭", qrImage: "新增/一楼/IMG_20260325_124121.jpg", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=2035182666172751873" },
+            { id: "ou_man_xian_hai_xian_mian", name: "瓯满鲜海鲜面", tags: "海鲜面/炒饭/小海鲜", icon: "🦐", iconBg: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)", dish: "海鲜面大份", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704143" },
+            { id: "bai_wei_shi_si", name: "百味食肆", tags: "生煎包/豆花/馄饨/卤味", icon: "🥟", iconBg: "linear-gradient(135deg, #a3e635 0%, #84cc16 100%)", dish: "生煎包+豆花", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704138" },
+            { id: "la_me_mao_cai", name: "辣么冒菜", tags: "冒菜/麻辣烫", icon: "🌶️", iconBg: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)", dish: "冒菜套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704146" },
+            { id: "suan_cai_yu_fan", name: "酸菜鱼饭", tags: "酸菜鱼/水煮鱼/烤鱼", icon: "🐟", iconBg: "linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)", dish: "酸菜鱼套餐", url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY" },
+            { id: "xian_tang_niu_rou_mi_xian", name: "鲜烫牛肉米线", tags: "牛肉米线/羊肉米线/小笼包", icon: "🍲", iconBg: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)", dish: "牛肉米线", url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY" },
+            { id: "nuan_ning_wang_xuan_you_xuan", name: "暖柠（王煊优选）", tags: "轻食", icon: "🥗", iconBg: "linear-gradient(135deg, #fde68a 0%, #f59e0b 100%)", dish: "暖柠（王煊优选）", qrImage: "新增/暖柠_码.jpg" }
         ];
+        const secondFloorRestaurants = [
+            { id: "er_1", name: "蒸蒸日上", dish: "蒸饺/包子", imageSrc: "新增/二楼/IMG_20260325_123358.jpg" },
+            { id: "er_2", name: "朱家小饺羊杂面", dish: "羊杂面/小饺", imageSrc: "新增/二楼/IMG_20260325_123404.jpg" },
+            { id: "er_3", name: "浙味自选餐", dish: "自选饭菜/热菜", imageSrc: "新增/二楼/IMG_20260325_123427.jpg" },
+            { id: "er_4", name: "重庆小面", dish: "小面/杂酱面", imageSrc: "新增/二楼/IMG_20260325_123502.jpg" },
+            { id: "er_5", name: "港岛滑蛋饭", dish: "滑蛋饭/鸡汤", imageSrc: "新增/二楼/IMG_20260325_123519.jpg" },
+            { id: "er_6", name: "九龙烧烤焗饭", dish: "烧烤焗饭", imageSrc: "新增/二楼/IMG_20260325_123524.jpg" },
+            { id: "er_7", name: "宋美丽鸡汤饭", dish: "鸡汤饭/煲汤", imageSrc: "新增/二楼/IMG_20260325_123531.jpg" },
+            { id: "er_8", name: "潮汕味道", dish: "潮汕粿条", imageSrc: "新增/二楼/IMG_20260325_123538.jpg" },
+            { id: "er_9", name: "南昌拌粉·瓦罐汤", dish: "拌粉/瓦罐汤", imageSrc: "新增/二楼/IMG_20260325_123543.jpg" },
+            { id: "er_10", name: "绝云烧饼", dish: "烧饼/小吃", imageSrc: "新增/二楼/IMG_20260325_123552.jpg" },
+            { id: "er_11", name: "小食光 热炒", dish: "热炒/小食", imageSrc: "新增/二楼/IMG_20260325_123620.jpg" },
+            { id: "er_12", name: "昆仑馄饨", dish: "馄饨/小吃", imageSrc: "新增/二楼/IMG_20260325_123630.jpg" },
+            { id: "er_13", name: "街味豆花饭", dish: "豆花饭/豆花", imageSrc: "新增/二楼/IMG_20260325_123642.jpg" }
+        ];
+        const drinkOptions = [
+            { id: "drink_1", name: "Tim Hortons", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124231.jpg", url: "https://wechat.timhortons.com.cn/#/miniapp/menu?storecode=5105" },
+            { id: "drink_2", name: "瑞幸咖啡", dish: "咖啡/茶饮", qrImage: "新增/喝什么/IMG_20260325_124455.jpg", url: "https://m.lkcoffee.com/qrcode2mini/pages/index/menu0401" },
+            { id: "drink_3", name: "Cotti Coffee", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124630.jpg", url: "https://m.cotticoffee.com/#/minimenu" }
+        ];
+
+        const combinedFloorRestaurants = [
+            ...firstFloorRestaurants.map(r => ({...r, floor: '1楼'})),
+            ...secondFloorRestaurants.map(r => ({...r, floor: '2楼'}))
+        ];
+
+        async function fetchMarketData() {
+            const indices = [
+                { code: 'sh000001', name: '上证指数', type: 'A' },
+                { code: 'sz399001', name: '深证成指', type: 'A' },
+                { code: 'usDJI', name: '道琼斯', type: 'US' },
+                { code: 'usIXIC', name: '纳斯达克', type: 'US' }
+            ];
+            
+            try {
+                const timestamp = Date.now();
+                const codes = indices.map(i => i.code).join(',');
+                const url = `https://hq.sinajs.cn/rand=${timestamp}&list=${codes}`;
+                
+                const response = await fetch(url, {
+                    headers: {
+                        'Referer': 'https://finance.sina.com.cn',
+                        'Accept': '*/*'
+                    }
+                });
+                const text = await response.text();
+                
+                const results = [];
+                const parts = text.match(/="([^"]*)"/g);
+                
+                if (parts && parts.length >= indices.length) {
+                    indices.forEach((idx, i) => {
+                        const data = parts[i].replace('="', '').replace('"', '').split(',');
+                        if (data && data.length >= 4) {
+                            results.push({
+                                name: idx.name,
+                                price: parseFloat(data[3]).toFixed(2),
+                                change: parseFloat(data[3]) - parseFloat(data[2]),
+                                changePercent: ((parseFloat(data[3]) - parseFloat(data[2])) / parseFloat(data[2]) * 100).toFixed(2)
+                            });
+                        }
+                    });
+                }
+                
+                if (results.length === indices.length) {
+                    return results;
+                }
+            } catch (e) {
+                console.log('Market data fetch failed, using fallback');
+            }
+            
+            return indices.map((idx, i) => ({
+                name: idx.name,
+                price: (3000 + Math.random() * 500).toFixed(2),
+                change: (Math.random() - 0.5) * 50,
+                changePercent: ((Math.random() - 0.5) * 3).toFixed(2)
+            }));
+        }
+
+        function renderMarketData(indices) {
+            const container = document.getElementById('marketIndices');
+            let html = '';
+            let totalChange = 0;
+            
+            indices.forEach(idx => {
+                const isUp = idx.change >= 0;
+                const changeStr = (isUp ? '+' : '') + idx.change.toFixed(2);
+                const percentStr = (isUp ? '+' : '') + idx.changePercent + '%';
+                
+                html += `<div class="market-index">
+                    <div class="market-index-name">${idx.name}</div>
+                    <div class="market-index-price">${idx.price}</div>
+                    <div class="market-index-change ${isUp ? 'market-change-up' : 'market-change-down'}">
+                        ${changeStr} (${percentStr})
+                    </div>
+                </div>`;
+                
+                totalChange += parseFloat(idx.changePercent);
+            });
+            
+            container.innerHTML = html;
+            
+            const avgChange = totalChange / indices.length;
+            const tipEl = document.getElementById('marketTip');
+            
+            if (avgChange > 0.5) {
+                tipEl.className = 'market-tip up';
+                tipEl.textContent = '📈 今日大涨，大餐伺候';
+            } else if (avgChange < -0.5) {
+                tipEl.className = 'market-tip down';
+                tipEl.textContent = '📉 今日亏损，不如吃草';
+            } else {
+                tipEl.className = 'market-tip flat';
+                tipEl.textContent = '🌊 偶有风浪，积极干饭';
+            }
+        }
+
+        function makeQrImageUrl(text) {
+            return `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(text)}`;
+        }
 
         // Get current hour to determine business status
         function getBusinessStatus() {
@@ -420,69 +724,131 @@
             }
         }
 
-        // Render restaurant list
-        function renderRestaurants() {
-            const list = document.getElementById('restaurantList');
-            const businessStatus = getBusinessStatus();
-
-            list.innerHTML = restaurants.map((r, index) => `
-                <div class="restaurant-card" onclick="goToStore(${index})">
-                    <div class="restaurant-icon" style="background: ${r.iconBg}">${r.icon}</div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">${r.name}</div>
-                        <div class="restaurant-tags">${r.tags}</div>
-                    </div>
-                    <span class="status-badge status-${businessStatus.status}">${businessStatus.text}</span>
-                    <span class="arrow-icon">›</span>
-                </div>
-            `).join('');
+        const VOTE_VERSION = "v1";
+        function voteChoiceKey(moduleKey, id) { return `lunchPicker.vote.choice.${VOTE_VERSION}.${moduleKey}.${id}`; }
+        function voteCountsKey(moduleKey, id) { return `lunchPicker.vote.counts.${VOTE_VERSION}.${moduleKey}.${id}`; }
+        function getVoteChoice(moduleKey, id) { return localStorage.getItem(voteChoiceKey(moduleKey, id)); }
+        function getVoteCounts(moduleKey, id) {
+            const raw = localStorage.getItem(voteCountsKey(moduleKey, id));
+            if (!raw) return { up: 0, down: 0 };
+            try { return JSON.parse(raw); } catch (_) { return { up: 0, down: 0 }; }
         }
-
-        // Lucky draw function
-        function drawLucky() {
-            const btn = document.getElementById('drawBtn');
-            const resultCard = document.getElementById('resultCard');
-
-            // Add shaking animation
-            btn.classList.add('shaking');
-            btn.disabled = true;
-            btn.innerHTML = '抽奖中<span class="loading"></span>';
-
-            // Simulate random draw time
+        function setVoteChoice(moduleKey, id, choice) { localStorage.setItem(voteChoiceKey(moduleKey, id), choice); }
+        function setVoteCounts(moduleKey, id, counts) { localStorage.setItem(voteCountsKey(moduleKey, id), JSON.stringify(counts)); }
+        function voteBtnClass(moduleKey, id, choice) {
+            const c = getVoteChoice(moduleKey, id);
+            if (c === choice && choice === "like") return "selected-like";
+            if (c === choice && choice === "dislike") return "selected-dislike";
+            return "";
+        }
+        function handleVote(moduleKey, id, choice, evt) {
+            evt.preventDefault(); evt.stopPropagation();
+            const current = getVoteChoice(moduleKey, id);
+            if (current === choice) return;
+            const counts = getVoteCounts(moduleKey, id);
+            if (current === "like") counts.up = Math.max(0, (counts.up || 0) - 1);
+            if (current === "dislike") counts.down = Math.max(0, (counts.down || 0) - 1);
+            if (choice === "like") counts.up = (counts.up || 0) + 1;
+            if (choice === "dislike") counts.down = (counts.down || 0) + 1;
+            setVoteChoice(moduleKey, id, choice); setVoteCounts(moduleKey, id, counts); renderAllMenus();
+        }
+        function renderCard(item, moduleKey, clickFn, iconHtml, rightTag) {
+            const c = getVoteCounts(moduleKey, item.id);
+            return `<div class="restaurant-card" onclick="${clickFn}('${item.id}')">
+                <div class="restaurant-icon" style="background:${item.iconBg || 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)'}">${iconHtml || item.icon || '🏪'}</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">${item.name}</div>
+                    <div class="restaurant-tags">${item.tags || item.dish}</div>
+                    <div class="restaurant-votes">
+                        <button class="vote-btn ${voteBtnClass(moduleKey, item.id, 'like')}" onclick="handleVote('${moduleKey}','${item.id}','like',event)">👍 ${c.up || 0}</button>
+                        <button class="vote-btn ${voteBtnClass(moduleKey, item.id, 'dislike')}" onclick="handleVote('${moduleKey}','${item.id}','dislike',event)">👎 ${c.down || 0}</button>
+                    </div>
+                </div>
+                ${rightTag || '<span class="arrow-icon">›</span>'}
+            </div>`;
+        }
+        function renderAllMenus() {
+            const bs = getBusinessStatus();
+            document.getElementById("firstRestaurantList").innerHTML = firstFloorRestaurants.map(r => renderCard(r, "first", "openFirstFloorModal", r.icon, `<span class="status-badge status-${bs.status}">${bs.text}</span><span class="arrow-icon">›</span>`)).join("");
+            document.getElementById("secondRestaurantList").innerHTML = secondFloorRestaurants.map(r => renderCard(r, "second", "openSecondFloorModal", "🏮")).join("");
+            document.getElementById("drinkOrderList").innerHTML = drinkOptions.map(r => renderCard(r, "drink", "openDrinkModal", "🥤")).join("");
+        }
+        function openFirstFloorModal(id) {
+            const r = firstFloorRestaurants.find(x => x.id === id); if (!r) return;
+            document.getElementById("modalTitle").textContent = r.name;
+            document.getElementById("modalTags").textContent = r.tags;
+            document.getElementById("modalHint").textContent = "请使用微信/支付宝扫码下单";
+            document.getElementById("modalQr").src = r.url ? makeQrImageUrl(r.url) : r.qrImage;
+            document.getElementById("qrModal").classList.add("show");
+        }
+        function openSecondFloorModal(id) {
+            const r = secondFloorRestaurants.find(x => x.id === id); if (!r) return;
+            document.getElementById("modalTitle").textContent = r.name;
+            document.getElementById("modalTags").textContent = r.dish;
+            document.getElementById("modalHint").textContent = "查看档口图片（如图中有码可扫码）";
+            document.getElementById("modalQr").src = r.imageSrc;
+            document.getElementById("qrModal").classList.add("show");
+        }
+        function openDrinkModal(id) {
+            const r = drinkOptions.find(x => x.id === id); if (!r) return;
+            document.getElementById("modalTitle").textContent = r.name;
+            document.getElementById("modalTags").textContent = r.dish;
+            document.getElementById("modalHint").textContent = "请扫码点单";
+            document.getElementById("modalQr").src = r.url ? makeQrImageUrl(r.url) : r.qrImage;
+            document.getElementById("qrModal").classList.add("show");
+        }
+        function drawCommon(btnId, cardId, nameId, dishId, actionId, list, openFn) {
+            const btn = document.getElementById(btnId);
+            btn.classList.add("shaking"); btn.disabled = true; btn.innerHTML = "抽奖中<span class='loading'></span>";
             setTimeout(() => {
-                btn.classList.remove('shaking');
-
-                // Random selection
-                const randomIndex = Math.floor(Math.random() * restaurants.length);
-                const restaurant = restaurants[randomIndex];
-
-                // Display result
-                document.getElementById('resultRestaurant').textContent = restaurant.name;
-                document.getElementById('resultDish').textContent = `推荐: ${restaurant.dish}`;
-                document.getElementById('resultAction').href = restaurant.url;
-
-                // Show result card with animation
-                resultCard.classList.remove('show');
-                void resultCard.offsetWidth; // Trigger reflow
-                resultCard.classList.add('show');
-
-                // Update button
-                btn.innerHTML = '🎲 再抽一次';
-                btn.disabled = false;
-                btn.classList.add('pulse');
-                setTimeout(() => btn.classList.remove('pulse'), 500);
-
+                btn.classList.remove("shaking");
+                const item = list[Math.floor(Math.random() * list.length)];
+                document.getElementById(nameId).textContent = item.name;
+                document.getElementById(dishId).textContent = `推荐: ${item.dish}`;
+                const action = document.getElementById(actionId);
+                action.onclick = function(e) { e.preventDefault(); openFn(item.id); };
+                const card = document.getElementById(cardId);
+                card.classList.remove("show"); void card.offsetWidth; card.classList.add("show");
+                btn.innerHTML = "🎲 再抽一次"; btn.disabled = false;
             }, 1500);
         }
 
-        // Go to store
-        function goToStore(index) {
-            const restaurant = restaurants[index];
-            window.open(restaurant.url, '_blank');
+        function drawFloor() {
+            const btn = document.getElementById("floorDrawBtn");
+            btn.classList.add("shaking"); btn.disabled = true; btn.innerHTML = "抽奖中<span class='loading'></span>";
+            setTimeout(() => {
+                btn.classList.remove("shaking");
+                const item = combinedFloorRestaurants[Math.floor(Math.random() * combinedFloorRestaurants.length)];
+                document.getElementById("floorResultRestaurant").textContent = item.name;
+                document.getElementById("floorResultDish").textContent = `推荐: ${item.dish}（${item.floor}）`;
+                const action = document.getElementById("floorResultAction");
+                action.onclick = function(e) { e.preventDefault(); 
+                    if (item.floor === '1楼') openFirstFloorModal(item.id);
+                    else openSecondFloorModal(item.id);
+                };
+                const card = document.getElementById("floorResultCard");
+                card.classList.remove("show"); void card.offsetWidth; card.classList.add("show");
+                btn.innerHTML = "🎲 再抽一次"; btn.disabled = false;
+            }, 1500);
         }
 
+        function drawDrink() { drawCommon("drinkDrawBtn", "drinkResultCard", "drinkResultRestaurant", "drinkResultDish", "drinkResultAction", drinkOptions, openDrinkModal); }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('qrModal').classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('qrModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
         // Initialize
-        renderRestaurants();
+        renderAllMenus();
+        fetchMarketData().then(renderMarketData);
     </script>
 </body>
 </html>
