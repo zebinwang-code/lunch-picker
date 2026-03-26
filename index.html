@@ -581,14 +581,14 @@
 
     <script>
         const firstFloorRestaurants = [
-            { id: "raw_slice_steak", name: "原切牛排", tags: "牛排/汉堡/意面", icon: "🥩", iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)", dish: "招牌牛排套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704136" },
-            { id: "shan_cheng_yu_mian", name: "山城渝面", tags: "面/米线/酸辣粉", icon: "🍜", iconBg: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", dish: "重庆小面", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704134" },
+            { id: "raw_slice_steak", name: "原切牛排", tags: "牛排/汉堡/意面", icon: "🥩", iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)", dish: "招牌牛排套餐", qrImage: "../原切牛排.jpg" },
+            { id: "shan_cheng_yu_mian", name: "山城渝面", tags: "面/米线/酸辣粉", icon: "🍜", iconBg: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", dish: "重庆小面", qrImage: "../山城渝面.jpg" },
             { id: "hang_er_ban_chuan", name: "杭儿拌川", tags: "拌川/片儿川/汤面", icon: "🍜", iconBg: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)", dish: "招牌拌川", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704139" },
             { id: "xinjiang_grab_fan_wang", name: "新疆抓饭王", tags: "抓饭/烤肉", icon: "🍛", iconBg: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)", dish: "新疆抓饭", qrImage: "新增/一楼/IMG_20260325_124121.jpg", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=2035182666172751873" },
             { id: "ou_man_xian_hai_xian_mian", name: "瓯满鲜海鲜面", tags: "海鲜面/炒饭/小海鲜", icon: "🦐", iconBg: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)", dish: "海鲜面大份", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704143" },
             { id: "bai_wei_shi_si", name: "百味食肆", tags: "生煎包/豆花/馄饨/卤味", icon: "🥟", iconBg: "linear-gradient(135deg, #a3e635 0%, #84cc16 100%)", dish: "生煎包+豆花", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704138" },
             { id: "la_me_mao_cai", name: "辣么冒菜", tags: "冒菜/麻辣烫", icon: "🌶️", iconBg: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)", dish: "冒菜套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704146" },
-            { id: "suan_cai_yu_fan", name: "酸菜鱼饭", tags: "酸菜鱼/水煮鱼/烤鱼", icon: "🐟", iconBg: "linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)", dish: "酸菜鱼套餐", url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY" },
+            { id: "suan_cai_yu_fan", name: "酸菜鱼饭", tags: "酸菜鱼/水煮鱼/烤鱼", icon: "🐟", iconBg: "linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)", dish: "酸菜鱼套餐", qrImage: "../酸菜鱼饭.jpg" },
             { id: "xian_tang_niu_rou_mi_xian", name: "鲜烫牛肉米线", tags: "牛肉米线/羊肉米线/小笼包", icon: "🍲", iconBg: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)", dish: "牛肉米线", url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY" },
             { id: "nuan_ning_wang_xuan_you_xuan", name: "暖柠（王煊优选）", tags: "轻食", icon: "🥗", iconBg: "linear-gradient(135deg, #fde68a 0%, #f59e0b 100%)", dish: "暖柠（王煊优选）", qrImage: "新增/暖柠_码.jpg" }
         ];
@@ -619,83 +619,83 @@
         ];
 
         async function fetchMarketData() {
-            const indices = [
-                { code: 'sh000001', name: '上证指数', type: 'A' },
-                { code: 'sz399001', name: '深证成指', type: 'A' },
-                { code: 'usDJI', name: '道琼斯', type: 'US' },
-                { code: 'usIXIC', name: '纳斯达克', type: 'US' }
+            // 使用东方财富 API (支持 CORS)
+            // secid: 1=上证, 0=深证
+            const urls = [
+                'https://push2.eastmoney.com/api/qt/stock/get?secid=1.000001&fields=f43,f58,f169,f170',
+                'https://push2.eastmoney.com/api/qt/stock/get?secid=0.399001&fields=f43,f58,f169,f170'
             ];
             
             try {
-                const timestamp = Date.now();
-                const codes = indices.map(i => i.code).join(',');
-                const url = `https://hq.sinajs.cn/rand=${timestamp}&list=${codes}`;
-                
-                const response = await fetch(url, {
-                    headers: {
-                        'Referer': 'https://finance.sina.com.cn',
-                        'Accept': '*/*'
-                    }
-                });
-                const text = await response.text();
+                const responses = await Promise.all(urls.map(url => fetch(url)));
+                const jsons = await Promise.all(responses.map(r => r.json()));
                 
                 const results = [];
-                const parts = text.match(/="([^"]*)"/g);
-                
-                if (parts && parts.length >= indices.length) {
-                    indices.forEach((idx, i) => {
-                        const data = parts[i].replace('="', '').replace('"', '').split(',');
-                        if (data && data.length >= 4) {
-                            results.push({
-                                name: idx.name,
-                                price: parseFloat(data[3]).toFixed(2),
-                                change: parseFloat(data[3]) - parseFloat(data[2]),
-                                changePercent: ((parseFloat(data[3]) - parseFloat(data[2])) / parseFloat(data[2]) * 100).toFixed(2)
-                            });
-                        }
-                    });
+                for (const json of jsons) {
+                    if (json?.data) {
+                        const d = json.data;
+                        // f43=当前价(分), f58=名称, f169=涨跌额(分), f170=涨跌幅(万分比)
+                        results.push({
+                            name: d.f58,
+                            price: (d.f43 / 100).toFixed(2),
+                            change: (d.f169 / 100).toFixed(2),
+                            changePercent: (d.f170 / 100).toFixed(2)
+                        });
+                    }
                 }
                 
-                if (results.length === indices.length) {
+                if (results.length === 2) {
                     return results;
                 }
             } catch (e) {
-                console.log('Market data fetch failed, using fallback');
+                console.log('Market data fetch failed:', e);
             }
             
-            return indices.map((idx, i) => ({
-                name: idx.name,
-                price: (3000 + Math.random() * 500).toFixed(2),
-                change: (Math.random() - 0.5) * 50,
-                changePercent: ((Math.random() - 0.5) * 3).toFixed(2)
-            }));
+            // 备用：返回错误状态
+            return [
+                { name: '上证指数', price: '--', change: '--', changePercent: '--' },
+                { name: '深证成指', price: '--', change: '--', changePercent: '--' }
+            ];
         }
 
         function renderMarketData(indices) {
             const container = document.getElementById('marketIndices');
             let html = '';
             let totalChange = 0;
+            let hasValidData = true;
             
             indices.forEach(idx => {
-                const isUp = idx.change >= 0;
-                const changeStr = (isUp ? '+' : '') + idx.change.toFixed(2);
-                const percentStr = (isUp ? '+' : '') + idx.changePercent + '%';
+                const changeNum = parseFloat(idx.change);
+                const isUp = !isNaN(changeNum) && changeNum >= 0;
+                const changeStr = isNaN(changeNum) ? idx.change : ((isUp ? '+' : '') + changeNum.toFixed(2));
+                const percentStr = isNaN(changeNum) ? idx.changePercent + '%' : ((isUp ? '+' : '') + parseFloat(idx.changePercent).toFixed(2) + '%');
                 
                 html += `<div class="market-index">
                     <div class="market-index-name">${idx.name}</div>
                     <div class="market-index-price">${idx.price}</div>
-                    <div class="market-index-change ${isUp ? 'market-change-up' : 'market-change-down'}">
+                    <div class="market-index-change ${isNaN(changeNum) ? '' : (isUp ? 'market-change-up' : 'market-change-down')}">
                         ${changeStr} (${percentStr})
                     </div>
                 </div>`;
                 
-                totalChange += parseFloat(idx.changePercent);
+                if (!isNaN(changeNum)) {
+                    totalChange += parseFloat(idx.changePercent);
+                } else {
+                    hasValidData = false;
+                }
             });
             
             container.innerHTML = html;
             
-            const avgChange = totalChange / indices.length;
             const tipEl = document.getElementById('marketTip');
+            
+            if (!hasValidData) {
+                tipEl.className = 'market-tip flat';
+                tipEl.textContent = '📡 行情加载中...';
+                return;
+            }
+            
+            const avgChange = totalChange / indices.length;
             
             if (avgChange > 0.5) {
                 tipEl.className = 'market-tip up';
