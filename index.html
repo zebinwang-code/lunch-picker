@@ -581,36 +581,36 @@
 
     <script>
         const firstFloorRestaurants = [
-            { id: "raw_slice_steak", name: "原切牛排", tags: "牛排/汉堡/意面", icon: "🥩", iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)", dish: "招牌牛排套餐", qrImage: "../原切牛排.jpg" },
+            { id: "raw_slice_steak", name: "原切牛排", tags: "牛排/汉堡/意面", icon: "🥩", iconBg: "linear-gradient(135deg, #f87171 0%, #ef4444 100%)", dish: "招牌牛排套餐", qrImage: "原切牛排.webp" },
             { id: "shan_cheng_yu_mian", name: "山城渝面", tags: "面/米线/酸辣粉", icon: "🍜", iconBg: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", dish: "重庆小面", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704139" },
             { id: "hang_er_ban_chuan", name: "杭儿拌川", tags: "拌川/片儿川/汤面", icon: "🍜", iconBg: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)", dish: "招牌拌川", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704139" },
-            { id: "xinjiang_grab_fan_wang", name: "新疆抓饭王", tags: "抓饭/烤肉", icon: "🍛", iconBg: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)", dish: "新疆抓饭", qrImage: "新增/一楼/IMG_20260325_124121.jpg", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=2035182666172751873" },
+            { id: "xinjiang_grab_fan_wang", name: "新疆抓饭王", tags: "抓饭/烤肉", icon: "🍛", iconBg: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)", dish: "新疆抓饭", qrImage: "新增/一楼/IMG_20260325_124121.webp", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=2035182666172751873" },
             { id: "ou_man_xian_hai_xian_mian", name: "瓯满鲜海鲜面", tags: "海鲜面/炒饭/小海鲜", icon: "🦐", iconBg: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)", dish: "海鲜面大份", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704143" },
             { id: "bai_wei_shi_si", name: "百味食肆", tags: "生煎包/豆花/馄饨/卤味", icon: "🥟", iconBg: "linear-gradient(135deg, #a3e635 0%, #84cc16 100%)", dish: "生煎包+豆花", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704138" },
             { id: "la_me_mao_cai", name: "辣么冒菜", tags: "冒菜/麻辣烫", icon: "🌶️", iconBg: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)", dish: "冒菜套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704146" },
             { id: "suan_cai_yu_fan", name: "酸菜鱼饭", tags: "酸菜鱼/水煮鱼/烤鱼", icon: "🐟", iconBg: "linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)", dish: "酸菜鱼套餐", url: "https://wx-kaci.shouqianba.com/qrcode/1962037596436176896?dId=1962040162454704143" },
             { id: "xian_tang_niu_rou_mi_xian", name: "鲜烫牛肉米线", tags: "牛肉米线/羊肉米线/小笼包", icon: "🍲", iconBg: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)", dish: "牛肉米线", url: "https://rms.meituan.com/diancan/14/2Q4xMemLoLY" },
-            { id: "nuan_ning_wang_xuan_you_xuan", name: "暖柠（王煊优选）", tags: "轻食", icon: "🥗", iconBg: "linear-gradient(135deg, #fde68a 0%, #f59e0b 100%)", dish: "暖柠（王煊优选）", qrImage: "新增/暖柠_码.jpg" }
+            { id: "nuan_ning_wang_xuan_you_xuan", name: "暖柠（王煊优选）", tags: "轻食", icon: "🥗", iconBg: "linear-gradient(135deg, #fde68a 0%, #f59e0b 100%)", dish: "暖柠（王煊优选）", qrImage: "新增/暖柠_码.webp" }
         ];
         const secondFloorRestaurants = [
-            { id: "er_1", name: "蒸蒸日上", dish: "蒸饺/包子", imageSrc: "新增/二楼/IMG_20260325_123358.jpg" },
-            { id: "er_2", name: "朱家小饺羊杂面", dish: "羊杂面/小饺", imageSrc: "新增/二楼/IMG_20260325_123404.jpg" },
-            { id: "er_3", name: "浙味自选餐", dish: "自选饭菜/热菜", imageSrc: "新增/二楼/IMG_20260325_123427.jpg" },
-            { id: "er_4", name: "重庆小面", dish: "小面/杂酱面", imageSrc: "新增/二楼/IMG_20260325_123502.jpg" },
-            { id: "er_5", name: "港岛滑蛋饭", dish: "滑蛋饭/鸡汤", imageSrc: "新增/二楼/IMG_20260325_123519.jpg" },
-            { id: "er_6", name: "九龙烧烤焗饭", dish: "烧烤焗饭", imageSrc: "新增/二楼/IMG_20260325_123524.jpg" },
-            { id: "er_7", name: "宋美丽鸡汤饭", dish: "鸡汤饭/煲汤", imageSrc: "新增/二楼/IMG_20260325_123531.jpg" },
-            { id: "er_8", name: "潮汕味道", dish: "潮汕粿条", imageSrc: "新增/二楼/IMG_20260325_123538.jpg" },
-            { id: "er_9", name: "南昌拌粉·瓦罐汤", dish: "拌粉/瓦罐汤", imageSrc: "新增/二楼/IMG_20260325_123543.jpg" },
-            { id: "er_10", name: "绝云烧饼", dish: "烧饼/小吃", imageSrc: "新增/二楼/IMG_20260325_123552.jpg" },
-            { id: "er_11", name: "小食光 热炒", dish: "热炒/小食", imageSrc: "新增/二楼/IMG_20260325_123620.jpg" },
-            { id: "er_12", name: "昆仑馄饨", dish: "馄饨/小吃", imageSrc: "新增/二楼/IMG_20260325_123630.jpg" },
-            { id: "er_13", name: "街味豆花饭", dish: "豆花饭/豆花", imageSrc: "新增/二楼/IMG_20260325_123642.jpg" }
+            { id: "er_1", name: "蒸蒸日上", dish: "蒸饺/包子", imageSrc: "新增/二楼/IMG_20260325_123358.webp" },
+            { id: "er_2", name: "朱家小饺羊杂面", dish: "羊杂面/小饺", imageSrc: "新增/二楼/IMG_20260325_123404.webp" },
+            { id: "er_3", name: "浙味自选餐", dish: "自选饭菜/热菜", imageSrc: "新增/二楼/IMG_20260325_123427.webp" },
+            { id: "er_4", name: "重庆小面", dish: "小面/杂酱面", imageSrc: "新增/二楼/IMG_20260325_123502.webp" },
+            { id: "er_5", name: "港岛滑蛋饭", dish: "滑蛋饭/鸡汤", imageSrc: "新增/二楼/IMG_20260325_123519.webp" },
+            { id: "er_6", name: "九龙烧烤焗饭", dish: "烧烤焗饭", imageSrc: "新增/二楼/IMG_20260325_123524.webp" },
+            { id: "er_7", name: "宋美丽鸡汤饭", dish: "鸡汤饭/煲汤", imageSrc: "新增/二楼/IMG_20260325_123531.webp" },
+            { id: "er_8", name: "潮汕味道", dish: "潮汕粿条", imageSrc: "新增/二楼/IMG_20260325_123538.webp" },
+            { id: "er_9", name: "南昌拌粉·瓦罐汤", dish: "拌粉/瓦罐汤", imageSrc: "新增/二楼/IMG_20260325_123543.webp" },
+            { id: "er_10", name: "绝云烧饼", dish: "烧饼/小吃", imageSrc: "新增/二楼/IMG_20260325_123552.webp" },
+            { id: "er_11", name: "小食光 热炒", dish: "热炒/小食", imageSrc: "新增/二楼/IMG_20260325_123620.webp" },
+            { id: "er_12", name: "昆仑馄饨", dish: "馄饨/小吃", imageSrc: "新增/二楼/IMG_20260325_123630.webp" },
+            { id: "er_13", name: "街味豆花饭", dish: "豆花饭/豆花", imageSrc: "新增/二楼/IMG_20260325_123642.webp" }
         ];
         const drinkOptions = [
-            { id: "drink_1", name: "Tim Hortons", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124231.jpg", url: "https://wechat.timhortons.com.cn/#/miniapp/menu?storecode=5105" },
-            { id: "drink_2", name: "瑞幸咖啡", dish: "咖啡/茶饮", qrImage: "新增/喝什么/IMG_20260325_124455.jpg", url: "https://m.lkcoffee.com/qrcode2mini/pages/index/menu0401" },
-            { id: "drink_3", name: "Cotti Coffee", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124630.jpg", url: "https://m.cotticoffee.com/#/minimenu" }
+            { id: "drink_1", name: "Tim Hortons", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124231.webp", url: "https://wechat.timhortons.com.cn/#/miniapp/menu?storecode=5105" },
+            { id: "drink_2", name: "瑞幸咖啡", dish: "咖啡/茶饮", qrImage: "新增/喝什么/IMG_20260325_124455.webp", url: "https://m.lkcoffee.com/qrcode2mini/pages/index/menu0401" },
+            { id: "drink_3", name: "Cotti Coffee", dish: "咖啡/饮品", qrImage: "新增/喝什么/IMG_20260325_124630.webp", url: "https://m.cotticoffee.com/#/minimenu" }
         ];
 
         const combinedFloorRestaurants = [

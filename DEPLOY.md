@@ -1,46 +1,45 @@
-# Vercel 部署指南
+# 部署指南
 
-## 拖拽部署（最简单）
+## 推荐：Cloudflare Pages（国内访问更快）
 
-1. **打开 Vercel 拖拽页面**
-   访问: https://vercel.com/drag-drop
+纯静态站，零配置，直接连 GitHub 仓库自动部署。
 
-2. **准备文件夹**
-   把 `/Users/admin/Documents/lunch-picker` 文件夹压缩成 zip
+### 步骤
 
-3. **拖拽上传**
-   把压缩包拖进去，等待部署
+1. 访问 [pages.cloudflare.com](https://pages.cloudflare.com)，登录账号
+2. 点 **Create application → Pages → Connect to Git**
+3. 选择 `zebinwang-code/lunch-picker` 仓库
+4. 构建配置留空（无需 build command，output directory 填 `.`）
+5. 点 **Save and Deploy**，等 30 秒即可
 
-4. **获取链接**
-   部署完成后会得到一个 `xxx.vercel.app` 的链接
+部署完成后得到 `*.pages.dev` 链接，每次 push 到 `main` 自动重新部署。
 
----
+### 国内访问说明
 
-## GitHub 部署
-
-1. 创建 GitHub 仓库: https://github.com/new
-   - 仓库名: `lunch-picker`
-   - 设为 Public
-
-2. 上传代码
-   ```bash
-   cd /Users/admin/Documents/lunch-picker
-   git init
-   git add .
-   git commit -m "initial commit"
-   git remote add origin https://github.com/你的用户名/lunch-picker.git
-   git push -u origin main
-   ```
-
-3. 部署
-   - 访问 https://vercel.com
-   - New Project → 导入仓库
-   - Deploy!
+- `*.pages.dev` 域名在国内可访问，但偶有被墙。
+- 绑定自定义域名后稳定性更好（Cloudflare 后台 → Custom domains）。
+- 如需更稳定的国内访问，需要自定义域名 + ICP 备案，走 Cloudflare 中国合作网络。
 
 ---
 
-## 部署后
+## 备用：Vercel
 
-1. 会得到一个 URL，如: `lunch-picker.vercel.app`
-2. 分享这个链接给同事即可使用
-3. 可在 Vercel 后台绑定自定义域名
+### 拖拽部署
+
+1. 访问 [vercel.com/drag-drop](https://vercel.com/drag-drop)
+2. 把 `lunch-picker` 文件夹拖进去，等待部署
+3. 得到 `xxx.vercel.app` 链接
+
+### GitHub 连接部署
+
+1. 访问 [vercel.com](https://vercel.com) → New Project → 选 `lunch-picker` 仓库 → Deploy
+
+---
+
+## 本地运行
+
+```bash
+cd lunch-picker
+python3 -m http.server 8080
+# 访问 http://localhost:8080
+```

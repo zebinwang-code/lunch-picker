@@ -1,4 +1,6 @@
 .DS_Store
 .venv/
 tools/
-新增/
+# 原始 JPG 不入库（太大）；WebP 版本正常追踪
+新增/**/*.jpg
+*.jpg

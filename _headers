@@ -1,0 +1,15 @@
+# Cloudflare Pages headers
+
+# Images: cache 30 days
+/新增/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=2592000, immutable
+
+# HTML: revalidate every visit
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
