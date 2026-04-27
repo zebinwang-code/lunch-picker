@@ -4,3 +4,10 @@ tools/
 # 原始 JPG 不入库（太大）；WebP 版本正常追踪
 新增/**/*.jpg
 *.jpg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
